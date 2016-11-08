@@ -44,7 +44,6 @@ package zskycat
 		{
 			return separator;
 		}
-		
 		public function set Separator(value:String)
 		{
 			separator = value;

@@ -1,5 +1,5 @@
 /**
- * 2016/9/13 15:47
+ * 2016/11/8 10:48
  * @author ZSkycat
  */
 package zskycat 
@@ -42,7 +42,7 @@ package zskycat
 		
 		private function OnRemovedFromStage(e:Event):void
 		{
-			for each (var list in eventList)
+			for each (var list:Array in eventList)
 			{
 				removeEventListener(list[0], list[1], list[2]);
 			}

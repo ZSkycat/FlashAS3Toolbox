@@ -1,5 +1,5 @@
 /**
- * 2016/11/7 16:37
+ * 2016/11/8 17:55
  * @author ZSkycat
  */
 package zskycat
@@ -51,17 +51,18 @@ package zskycat
 			currentSceneName = sceneName;
 			switch (sceneName)
 			{
-                case "scene1": 
+                //自定义场景名和场景区域
+                case "scene1":
                     currentScene = new DisplayObjectContainer();
                     break;
-                default: 
-                    throw new Error("找不到场景 " + sceneName);
+                default:
+                    throw new Error("找不到场景. sceneName=" + sceneName);
 			}
 			sceneContainer.addChild(currentScene);
 		}
 		
 		/**
-		 * 删除场景
+		 * 删除当前场景
 		 */
 		public function RemoveScene()
 		{
