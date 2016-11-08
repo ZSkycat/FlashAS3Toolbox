@@ -1,2 +1,5 @@
 # FlashAS3Toolbox
-My Flash ActionScript3 tool library. 我的Flash ActionScript3工具类库。
+My Flash ActionScript3 tool library.
+
+# License
+The license of the repositories is [MIT License](https://github.com/ZSkycat/FlashAS3Toolbox/blob/master/LICENSE).
