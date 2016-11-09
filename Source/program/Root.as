@@ -8,10 +8,8 @@ package program
 	
 	public class Root extends MovieClip
 	{
-		
 		public function Root()
 		{
-            trace(stage.scaleMode)
 		}
 		
 		//Demo 发送事件
