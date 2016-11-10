@@ -9,10 +9,10 @@ package zskycat
     import flash.display.Stage;
     import flash.display.StageDisplayState;
     import flash.display.StageScaleMode;
-	import flash.system.fscommand;
-	
-	public class CommonTool
-	{
+    import flash.system.fscommand;
+    
+    public class CommonTool
+    {
         /**
          * 退出Flash，以发送命令的方式
          */
@@ -25,10 +25,10 @@ package zskycat
          * 全屏控制，以发送命令的方式
          * @param isEnable  是否全屏
          */
-		public static function FullscreenCommand(isEnable:Boolean)
-		{
-			fscommand("fullscreen", isEnable.toString());
-		}
+        public static function FullscreenCommand(isEnable:Boolean)
+        {
+            fscommand("fullscreen", isEnable.toString());
+        }
         
         /**
          * 全屏控制，以设置舞台的方式
@@ -75,26 +75,26 @@ package zskycat
                     break;
             }
         }
-		
-		/**
-		 * 获取指定帧标签名的帧数，支持偏移量
-		 * @param movieClip 影片剪辑对象
-		 * @param label 帧标签
-		 * @param offset 偏移，0为帧标签名的所在帧
-		 */
-		public static function GetLabelIndex(movieClip:MovieClip, label:String, offset:int = 0):int
-		{
+        
+        /**
+         * 获取指定帧标签名的帧数，支持偏移量
+         * @param movieClip 影片剪辑对象
+         * @param label 帧标签
+         * @param offset 偏移，0为帧标签名的所在帧
+         */
+        public static function GetLabelIndex(movieClip:MovieClip, label:String, offset:int = 0):int
+        {
             if (movieClip == null)
                 throw new Error("指定的 movieClip 不能为 null.");
             if (label == null)
                 throw new Error("指定的 label 不能为 null.");
-			for each (var i:FrameLabel in movieClip.currentLabels)
-			{
-				if (label == i.name)
-					return i.frame + offset;
-			}
-			throw new Error("指定的 label 找不到. label=" + label);
-		}
-	}
+            for each (var i:FrameLabel in movieClip.currentLabels)
+            {
+                if (label == i.name)
+                    return i.frame + offset;
+            }
+            throw new Error("指定的 label 找不到. label=" + label);
+        }
+    }
 
 }
