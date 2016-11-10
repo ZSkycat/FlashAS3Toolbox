@@ -223,7 +223,7 @@ package zskycat
                 netStr.soundTransform = new SoundTransform(volume);
         }
 		
-		//状态变化事件
+		// 状态变化事件
 		private function OnNetStatus(e:NetStatusEvent)
 		{
 			switch (e.info.code)

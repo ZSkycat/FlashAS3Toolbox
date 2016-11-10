@@ -8,10 +8,10 @@ package zskycat
 	
 	public class CustomEvent extends Event
 	{
-        //事件类型
+        // 事件类型
         public static const Updata:String = "Updata";
         
-        //事件数据
+        // 事件数据
         public var data:Object = {};
 		
         /**

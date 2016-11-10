@@ -51,7 +51,7 @@ package zskycat
 			currentSceneName = sceneName;
 			switch (sceneName)
 			{
-                //自定义场景名和场景区域
+                // 自定义场景名和场景区域
                 case "scene1":
                     currentScene = new DisplayObjectContainer();
                     break;

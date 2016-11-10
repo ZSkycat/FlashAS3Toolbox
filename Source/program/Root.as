@@ -12,7 +12,7 @@ package program
 		{
 		}
 		
-		//Demo 发送事件
+		// Demo 发送事件
 		private function DispatchUpdata()
 		{
 			var event:CustomEvent = new CustomEvent(CustomEvent.Updata);

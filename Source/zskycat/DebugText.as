@@ -56,21 +56,21 @@ package zskycat
 		 */
 		public function DebugText(cont:DisplayObjectContainer, h:Number = 100)
 		{
-			//设置容器 宽度 高度
+			// 设置容器 宽度 高度
 			container = cont;
 			var width:Number = container.stage.stageWidth - 4;  // -4 是去掉边框大小
 			var height:Number = h - 4;  // -4 是去掉边框大小
-			//定义 Sprite 背景
+			// 定义 Sprite 背景
 			sprite = new Sprite();
 			sprite.name = "DebugText";
 			sprite.graphics.lineStyle(2, 0x00BBBB);
 			sprite.graphics.beginFill(0x008080, 0.5);
 			sprite.graphics.drawRect(2, 2, width, height);
-			//定义文本默认样式
+			// 定义文本默认样式
 			var txtFormat:TextFormat = new TextFormat();
 			txtFormat.color = 0xFF0000;
 			txtFormat.size = 15;
-			//定义文本
+			// 定义文本
 			txt = new TextField();
 			txt.multiline = true;
 			txt.wordWrap = true;
@@ -114,9 +114,9 @@ package zskycat
 				else
 					txt.appendText(separator + obj.toString());
 			}
-			//置顶输出框
+			// 置顶输出框
 			container.setChildIndex(sprite, container.numChildren - 1);
-			//滚动到最底
+			// 滚动到最底
 			txt.scrollV = txt.numLines;
 		}
 		

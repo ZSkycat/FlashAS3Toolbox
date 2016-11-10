@@ -13,7 +13,7 @@ package zskycat
      */
 	public class TimelinePlayControl
 	{
-		//枚举常量
+		// 枚举常量
 		private static const PlayStatus_Stop = 0;
 		private static const PlayStatus_Play = 1;
 		private static const PlayStatus_PrevPlay = -1;
@@ -120,7 +120,7 @@ package zskycat
 			}
 		}
 		
-        //获取帧数
+        // 获取帧数
 		private function GetFrame(frame:Object):int
 		{
 			if (frame is int)
@@ -146,7 +146,7 @@ package zskycat
 			}
 		}
         
-        //检查结束帧是否正常
+        // 检查结束帧是否正常
         private function CheckEndFrame()
         {
             if (playStatus > 0)
