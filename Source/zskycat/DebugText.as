@@ -1,5 +1,5 @@
 /**
- * 2016/11/7 15:26
+ * 2016/11/23 14:29
  * @author ZSkycat
  */
 package zskycat
@@ -51,10 +51,11 @@ package zskycat
         
         /**
          * 实例化 Debug 输出框，请使用 Instance 单例对象输出
-         * @param cont 父容器对象，请使用顶层容器如 stage root
-         * @param h 输出框高度
+         * @param cont  父容器对象，请使用顶层容器如 stage root
+         * @param h  输出框高度
+         * @param fontSize  字体大小
          */
-        public function DebugText(cont:DisplayObjectContainer, h:Number = 100)
+        public function DebugText(cont:DisplayObjectContainer, h:Number = 100, fontSize = 15)
         {
             // 设置容器 宽度 高度
             container = cont;
@@ -69,7 +70,7 @@ package zskycat
             // 定义文本默认样式
             var txtFormat:TextFormat = new TextFormat();
             txtFormat.color = 0xFF0000;
-            txtFormat.size = 15;
+            txtFormat.size = fontSize;
             // 定义文本
             txt = new TextField();
             txt.multiline = true;
