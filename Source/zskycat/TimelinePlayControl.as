@@ -1,5 +1,5 @@
 /**
- * 2016/11/8 17:55
+ * 2017/01/22 02:55
  * @author ZSkycat
  */
 package zskycat
@@ -18,9 +18,14 @@ package zskycat
         private static const PlayStatus_Play = 1;
         private static const PlayStatus_PrevPlay = -1;
         
-        private var movieClip:MovieClip;
+        private var movieClipObject:MovieClip;
         private var playStatus:int;
         private var endFrame:int;
+        
+        public function get MovieClipObject():MovieClip 
+        {
+            return movieClipObject;
+        }
         
         /**
          * 实例化时间轴播放控制器
@@ -28,7 +33,7 @@ package zskycat
          */
         public function TimelinePlayControl(movieClip:MovieClip)
         {
-            this.movieClip = movieClip;
+            this.movieClipObject = movieClip;
             playStatus = PlayStatus_Stop;
             endFrame = 0;
         }
@@ -40,7 +45,7 @@ package zskycat
         public function PlayTo(frame:Object)
         {
             if (playStatus == PlayStatus_Stop)
-                movieClip.addEventListener(Event.ENTER_FRAME, OnEnterFrame);
+                movieClipObject.addEventListener(Event.ENTER_FRAME, OnEnterFrame);
             playStatus = PlayStatus_Play;
             endFrame = GetFrame(frame);
             CheckEndFrame();
@@ -53,7 +58,7 @@ package zskycat
         public function PrevPlayTo(frame:Object)
         {
             if (playStatus == PlayStatus_Stop)
-                movieClip.addEventListener(Event.ENTER_FRAME, OnEnterFrame);
+                movieClipObject.addEventListener(Event.ENTER_FRAME, OnEnterFrame);
             playStatus = PlayStatus_PrevPlay;
             endFrame = GetFrame(frame);
             CheckEndFrame();
@@ -67,7 +72,7 @@ package zskycat
         public function FastPlayTo(status:int, frame:Object)
         {
             if (playStatus == PlayStatus_Stop)
-                movieClip.addEventListener(Event.ENTER_FRAME, OnEnterFrame);
+                movieClipObject.addEventListener(Event.ENTER_FRAME, OnEnterFrame);
             playStatus = status;
             endFrame = GetFrame(frame);
             CheckEndFrame();
@@ -86,36 +91,36 @@ package zskycat
             switch (playStatus)
             {
                 case PlayStatus_Stop: 
-                    movieClip.removeEventListener(Event.ENTER_FRAME, OnEnterFrame);
+                    movieClipObject.removeEventListener(Event.ENTER_FRAME, OnEnterFrame);
                     break;
                 case PlayStatus_Play: 
-                    movieClip.nextFrame();
+                    movieClipObject.nextFrame();
                     break;
                 case PlayStatus_PrevPlay: 
-                    movieClip.prevFrame();
+                    movieClipObject.prevFrame();
                     break;
                 default:
-                    var gotoFrame:int = movieClip.currentFrame + playStatus;
+                    var gotoFrame:int = movieClipObject.currentFrame + playStatus;
                     if (playStatus > 0)
                     {
                         if(gotoFrame < endFrame)
-                            movieClip.gotoAndStop(gotoFrame);
+                            movieClipObject.gotoAndStop(gotoFrame);
                         else
-                            movieClip.gotoAndStop(endFrame);
+                            movieClipObject.gotoAndStop(endFrame);
                     }
                     else
                     {
                         if(gotoFrame > endFrame)
-                            movieClip.gotoAndStop(gotoFrame);
+                            movieClipObject.gotoAndStop(gotoFrame);
                         else
-                            movieClip.gotoAndStop(endFrame);
+                            movieClipObject.gotoAndStop(endFrame);
                     }
                     break;
             }
             
-            if (movieClip.currentFrame == endFrame)
+            if (movieClipObject.currentFrame == endFrame)
             {
-                movieClip.removeEventListener(Event.ENTER_FRAME, OnEnterFrame);
+                movieClipObject.removeEventListener(Event.ENTER_FRAME, OnEnterFrame);
                 playStatus = PlayStatus_Stop;
             }
         }
@@ -126,14 +131,14 @@ package zskycat
             if (frame is int)
             {
                 var frameInt:int = int(frame);
-                if (frameInt > 0 && frameInt <= movieClip.totalFrames)
+                if (frameInt > 0 && frameInt <= movieClipObject.totalFrames)
                     return frameInt;
                 else
                     throw new Error("指定的 frame 超出范围. frame=" + frame)
             }
             else if (frame is String)
             {
-                for each (var i:FrameLabel in movieClip.currentLabels)
+                for each (var i:FrameLabel in movieClipObject.currentLabels)
                 {
                     if (i.name == frame)
                         return i.frame;
@@ -151,18 +156,18 @@ package zskycat
         {
             if (playStatus > 0)
             {
-                if (movieClip.currentFrame > endFrame)
+                if (movieClipObject.currentFrame > endFrame)
                 {
-                    trace("指定的 endFrame 无法到达，现已恢复. currentFrame=" + movieClip.currentFrame + ",endFrame=" + endFrame + ",playStatus=" + playStatus);
-                    movieClip.gotoAndStop(endFrame);
+                    trace("指定的 endFrame 无法到达，现已恢复. currentFrame=" + movieClipObject.currentFrame + ",endFrame=" + endFrame + ",playStatus=" + playStatus);
+                    movieClipObject.gotoAndStop(endFrame);
                 }
             }
             else if(playStatus < 0)
             {
-                if (movieClip.currentFrame < endFrame)
+                if (movieClipObject.currentFrame < endFrame)
                 {
-                    trace("指定的 EndFrame 无法到达，现已恢复. currentFrame=" + movieClip.currentFrame + ",endFrame=" + endFrame + ",playStatus=" + playStatus);
-                    movieClip.gotoAndStop(endFrame);
+                    trace("指定的 EndFrame 无法到达，现已恢复. currentFrame=" + movieClipObject.currentFrame + ",endFrame=" + endFrame + ",playStatus=" + playStatus);
+                    movieClipObject.gotoAndStop(endFrame);
                 }
             }
         }

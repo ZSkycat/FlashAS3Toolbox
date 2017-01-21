@@ -1,5 +1,5 @@
 /**
- * 2016/11/8 10:48
+ * 2017/01/22 04:26
  * @author ZSkycat
  */
 package zskycat 
@@ -12,12 +12,22 @@ package zskycat
         private var eventList:Array = [];
         
         /**
-         * @param isInit  true为使用初始化，false为不使用初始化
+         * @param initMode  初始化模式
+         * 0-不启用 1-Event.OnAddedToStage 2-Event.EXIT_FRAME
          */
-        public function SpriteHelper(isInit:Boolean = false) 
+        public function SpriteHelper(initMode:int = 0) 
         {
-            if (isInit)
-                addEventListenerAutoRemove(Event.ADDED_TO_STAGE, OnAddedToStage);
+            switch(initMode)
+            {
+                case 0:
+                    break;
+                case 1:
+                    addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+                    break;
+                case 2:
+                    addEventListener(Event.EXIT_FRAME, OnExitFrame);
+                    break;
+            }
             addEventListenerAutoRemove(Event.REMOVED_FROM_STAGE, OnRemovedFromStage);
         }
         
@@ -37,6 +47,13 @@ package zskycat
         
         private function OnAddedToStage(e:Event):void
         {
+            removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+            Initialize();
+        }
+        
+        private function OnExitFrame(e:Event):void
+        {
+            removeEventListener(Event.EXIT_FRAME, OnExitFrame);
             Initialize();
         }
         

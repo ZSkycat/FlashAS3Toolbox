@@ -170,7 +170,7 @@ package zskycat
          * 快进或快退
          * @param time  单位是秒，正数是快进，负数是快退
          */
-        public function JumpAtCurrent(time:Number)
+        public function GotoAtCurrent(time:Number)
         {
             netStr.seek(netStr.time + time);
         }
@@ -179,7 +179,7 @@ package zskycat
          * 跳转到指定时间
          * @param time  单位是秒
          */
-        public function JumpToTime(time:Number)
+        public function GotoAtTime(time:Number)
         {
             netStr.seek(time);
         }
