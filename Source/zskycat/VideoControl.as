@@ -167,6 +167,14 @@ package zskycat
         }
         
         /**
+         * 强制重播
+         */
+        public function Replay2()
+        {
+            netStr.play(FilePath);
+        }
+        
+        /**
          * 快进或快退
          * @param time  单位是秒，正数是快进，负数是快退
          */
