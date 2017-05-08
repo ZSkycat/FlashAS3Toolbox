@@ -1,14 +1,12 @@
 # FlashAS3Toolbox
 My Flash ActionScript3 tool library.
 
-## Source
-**program.Root**: 文档类，含操作 Demo  
-**zskycat.***: 所有工具类所在的命名空间
+This repository is stopped update.
 
 ## Flash Develop Theme
 **Visual Studio Black.fdz**  
-- Use the Visual Studio style theme. 使用 Visual Studio 风格的主题。
-- Looks very comfortable. 看起来很舒服。
+- Use the Visual Studio style theme.
+- Looks very comfortable.
 
 # License
-Licensed under the [MIT License](https://github.com/ZSkycat/FlashAS3Toolbox/blob/master/LICENSE).
+Licensed under the [MIT License](/ZSkycat/FlashAS3Toolbox/blob/master/LICENSE).
